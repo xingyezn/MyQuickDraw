@@ -91,8 +91,8 @@ def main(opt):
                         image = np.array(image, dtype=np.float32)[None, None, :, :]
                         image = torch.from_numpy(image)
                         # 在这个地方添加image.cuda()的操作
-                        #logits = model(image.cuda())
-                        logits = model(image)
+                        logits = model(image.cuda())
+                        #logits = model(image)
                         predicted_class = torch.argmax(logits[0])
                         # print (CLASSES[predicted_class])
                         is_shown = True
