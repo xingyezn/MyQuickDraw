@@ -51,7 +51,8 @@ def main():
             image = cv2.resize(image, (28, 28))
             image = np.array(image, dtype=np.float32)[None, None, :, :]
             image = torch.from_numpy(image)
-            logits = model(image.cuda())
+            #logits = model(image.cuda())
+            logits = model(image)
             print(CLASSES[torch.argmax(logits[0])])
             image = np.zeros((480, 640, 3), dtype=np.uint8)
             ix = -1
